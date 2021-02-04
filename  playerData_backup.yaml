@@ -1,7 +1,7 @@
 - !!python/object:__main__.officeballPlayer
   _ID: 1
-  _elo: 1025.0
-  _nGames: 1
+  _elo: 1000
+  _nGames: 0
   _name: Alec
 - !!python/object:__main__.officeballPlayer
   _ID: 2
@@ -15,6 +15,6 @@
   _name: Curtis
 - !!python/object:__main__.officeballPlayer
   _ID: 4
-  _elo: 975.0
-  _nGames: 1
+  _elo: 1000
+  _nGames: 0
   _name: Zeno

@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-import pickle
+import subprocess
 import yaml
 import io
 
@@ -50,6 +50,9 @@ class officeballPlayer:
     def incrementGames(self):
         self.nGames = self.nGames + 1
 
+    def resetPlayerData(self):
+        self.elo = 1000
+        self.nGames = 0
 
 
 
@@ -177,6 +180,13 @@ def main():
 
     # with open('playerData.pkl', 'wb') as handle:
     #     pickle.dump(players, handle)
+
+    # Backup playerData and gameHistory
+    process = subprocess.run(['cp', 'playerData.yaml', ' playerData_backup.yaml'])
+    process = subprocess.run(['cp', 'gameHistory.yaml', ' gameHistory_backup.yaml'])
+
+    with io.open('playerData.yaml', 'w', encoding='utf8') as outfile:
+        yaml.dump(players, outfile, default_flow_style=False, allow_unicode=True)
 
 
     # with io.open('test.yaml', 'w', encoding='utf8') as outfile:
