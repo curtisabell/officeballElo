@@ -1,13 +1,15 @@
 #!/usr/bin/python3
-import pickle as pickle
+import pickle
+import yaml
+import io
 
 
 class officeballPlayer:
-    def __init__(self):
-        self._ID = 0
-        self._name = 'name'
-        self._elo = 1000
-        self._nGames = 0
+    def __init__(self, ID=0, name='Name', elo=1000, nGames=0):
+        self._ID = ID
+        self._name = name
+        self._elo = elo
+        self._nGames = nGames
 
     @property
     def ID(self):
@@ -134,31 +136,51 @@ class officeballGame:
 
 
 def main():
-    alec = officeballPlayer()
-    alec.name = 'Alec'
-    alec.ID = 1
-    brad = officeballPlayer()
-    brad.name = 'Brad'
-    brad.ID = 2
-    curtis = officeballPlayer()
-    curtis.name = 'Curtis'
-    curtis.ID = 3
-    zeno = officeballPlayer()
-    zeno.name = 'Zeno'
-    zeno.ID = 4
 
 
-    players = [alec, brad, curtis, zeno]
+    with io.open('playerData.yaml', 'r') as stream:
+        players = yaml.load(stream)
+
+    # alec = officeballPlayer()
+    # alec.name = 'Alec'
+    # alec.ID = 1
+    # brad = officeballPlayer()
+    # brad.name = 'Brad'
+    # brad.ID = 2
+    # curtis = officeballPlayer()
+    # curtis.name = 'Curtis'
+    # curtis.ID = 3
+    # zeno = officeballPlayer()
+    # zeno.name = 'Zeno'
+    # zeno.ID = 4
+    # players = [alec, brad, curtis, zeno]
 
 
     for player in players:
         player.printInfo()
-    testGame = officeballGame(alec, zeno)
-    testGame.updateElo()
+    games = [officeballGame(players[0], players[3])]
+    games[0].updateElo()
     print('')
     for player in players:
         player.printInfo()
 
+    # games.append(officeballGame(curtis, zeno))
+    # games[1].updateElo()
+    # print('')
+    # for player in players:
+    #     player.printInfo()
+    # games.append(officeballGame(alec, zeno))
+    # games[2].updateElo()
+    # print('')
+    # for player in players:
+    #     player.printInfo()
+
+    # with open('playerData.pkl', 'wb') as handle:
+    #     pickle.dump(players, handle)
+
+
+    # with io.open('test.yaml', 'w', encoding='utf8') as outfile:
+    #     yaml.dump(players, outfile, default_flow_style=False, allow_unicode=True)
 
 
 if __name__ == "__main__":
