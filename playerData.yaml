@@ -1,20 +1,35 @@
 - !!python/object:__main__.officeballPlayer
   _ID: 1
-  _elo: 1025.0
-  _nGames: 1
+  _elo: 1057.3644836748895
+  _nGames: 23
   _name: Alec
 - !!python/object:__main__.officeballPlayer
   _ID: 2
-  _elo: 1000
-  _nGames: 0
+  _elo: 1099.5153426017018
+  _nGames: 9
   _name: Brad
 - !!python/object:__main__.officeballPlayer
   _ID: 3
-  _elo: 1000
-  _nGames: 0
+  _elo: 895.9484960963032
+  _nGames: 16
   _name: Curtis
 - !!python/object:__main__.officeballPlayer
   _ID: 4
+  _elo: 1016.6923648038781
+  _nGames: 21
+  _name: Zeno
+- !!python/object:__main__.officeballPlayer
+  _ID: 5
   _elo: 975.0
   _nGames: 1
-  _name: Zeno
+  _name: Albert
+- !!python/object:__main__.officeballPlayer
+  _ID: 6
+  _elo: 1025.0
+  _nGames: 1
+  _name: Liam
+- !!python/object:__main__.officeballPlayer
+  _ID: 7
+  _elo: 930.4793128232279
+  _nGames: 3
+  _name: Andre

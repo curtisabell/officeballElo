@@ -2,6 +2,7 @@
 import subprocess
 import yaml
 import io
+import numpy as np
 
 
 class officeballPlayer:
@@ -137,60 +138,49 @@ class officeballGame:
         self.loser.incrementGames()
 
 
+def addGame():
+
+
+
+def addNewPlayer():
+    print('Enter the name of the new player:')
+
+
+def removePlayer():
+    print('Note, only a player with 0 games played is able to be removed.'
+    print('Enter the name of the player to be removed:')
+
+
+# def undoPreviousCommand():
+
+
 
 def main():
 
-
+    # Read in current player data
     with io.open('playerData.yaml', 'r') as stream:
         players = yaml.load(stream)
 
-    # alec = officeballPlayer()
-    # alec.name = 'Alec'
-    # alec.ID = 1
-    # brad = officeballPlayer()
-    # brad.name = 'Brad'
-    # brad.ID = 2
-    # curtis = officeballPlayer()
-    # curtis.name = 'Curtis'
-    # curtis.ID = 3
-    # zeno = officeballPlayer()
-    # zeno.name = 'Zeno'
-    # zeno.ID = 4
-    # players = [alec, brad, curtis, zeno]
+    # Read in the game history
+    with io.open('gameHistory.yaml', 'r') as stream:
+        games = yaml.load(stream)
 
 
-    for player in players:
-        player.printInfo()
-    games = [officeballGame(players[0], players[3])]
-    games[0].updateElo()
-    print('')
-    for player in players:
-        player.printInfo()
 
-    # games.append(officeballGame(curtis, zeno))
-    # games[1].updateElo()
-    # print('')
-    # for player in players:
-    #     player.printInfo()
-    # games.append(officeballGame(alec, zeno))
-    # games[2].updateElo()
-    # print('')
-    # for player in players:
-    #     player.printInfo()
 
-    # with open('playerData.pkl', 'wb') as handle:
-    #     pickle.dump(players, handle)
+
 
     # Backup playerData and gameHistory
-    process = subprocess.run(['cp', 'playerData.yaml', ' playerData_backup.yaml'])
-    process = subprocess.run(['cp', 'gameHistory.yaml', ' gameHistory_backup.yaml'])
+    process = subprocess.run(['cp', 'playerData.yaml', 'playerData_backup.yaml'])
+    process = subprocess.run(['cp', 'gameHistory.yaml', 'gameHistory_backup.yaml'])
 
+    # Store playerData in a yaml file
     with io.open('playerData.yaml', 'w', encoding='utf8') as outfile:
         yaml.dump(players, outfile, default_flow_style=False, allow_unicode=True)
 
-
-    # with io.open('test.yaml', 'w', encoding='utf8') as outfile:
-    #     yaml.dump(players, outfile, default_flow_style=False, allow_unicode=True)
+    # Store gameData in a yaml file
+    with io.open('gameHistory.yaml', 'w', encoding='utf8') as outfile:
+        yaml.dump(games, outfile, default_flow_style=False, allow_unicode=True)
 
 
 if __name__ == "__main__":

@@ -18,3 +18,18 @@
   _elo: 1000
   _nGames: 0
   _name: Zeno
+- !!python/object:__main__.officeballPlayer
+  _ID: 5
+  _elo: 1000
+  _nGames: 0
+  _name: Albert
+- !!python/object:__main__.officeballPlayer
+  _ID: 6
+  _elo: 1000
+  _nGames: 0
+  _name: Liam
+- !!python/object:__main__.officeballPlayer
+  _ID: 7
+  _elo: 1000
+  _nGames: 0
+  _name: Andre
