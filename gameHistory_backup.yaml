@@ -1,0 +1,361 @@
+- !!python/object:__main__.officeballGame
+  _date: 31/12/1969
+  _gameNumber: 0
+  _kFactor: 50
+  _loser: &id002 !!python/object:__main__.officeballPlayer
+    _ID: 1
+    _elo: 1057.3644836748895
+    _nGames: 23
+    _name: Alec
+  _loserOrigElo: 1000
+  _time: 1200
+  _winner: &id001 !!python/object:__main__.officeballPlayer
+    _ID: 4
+    _elo: 1016.6923648038781
+    _nGames: 21
+    _name: Zeno
+  _winnerOrigElo: 1000
+- !!python/object:__main__.officeballGame
+  _date: 31/12/1969
+  _gameNumber: 0
+  _kFactor: 50
+  _loser: *id001
+  _loserOrigElo: 1025.0
+  _time: 1200
+  _winner: &id003 !!python/object:__main__.officeballPlayer
+    _ID: 3
+    _elo: 895.9484960963032
+    _nGames: 16
+    _name: Curtis
+  _winnerOrigElo: 1000
+- !!python/object:__main__.officeballGame
+  _date: 31/12/1969
+  _gameNumber: 0
+  _kFactor: 50
+  _loser: *id001
+  _loserOrigElo: 998.2042036527449
+  _time: 1200
+  _winner: *id002
+  _winnerOrigElo: 975.0
+- !!python/object:__main__.officeballGame
+  _date: 31/12/1969
+  _gameNumber: 0
+  _kFactor: 50
+  _loser: *id001
+  _loserOrigElo: 971.537005099589
+  _time: 1200
+  _winner: *id003
+  _winnerOrigElo: 1026.7957963472552
+- !!python/object:__main__.officeballGame
+  _date: 31/12/1969
+  _gameNumber: 0
+  _kFactor: 50
+  _loser: !!python/object:__main__.officeballPlayer
+    _ID: 5
+    _elo: 975.0
+    _nGames: 1
+    _name: Albert
+  _loserOrigElo: 1000
+  _time: 1200
+  _winner: !!python/object:__main__.officeballPlayer
+    _ID: 6
+    _elo: 1025.0
+    _nGames: 1
+    _name: Liam
+  _winnerOrigElo: 1000
+- !!python/object:__main__.officeballGame
+  _date: 31/12/1969
+  _gameNumber: 0
+  _kFactor: 50
+  _loser: *id002
+  _loserOrigElo: 1001.6671985531559
+  _time: 1200
+  _winner: *id003
+  _winnerOrigElo: 1047.8527982939142
+- !!python/object:__main__.officeballGame
+  _date: 31/12/1969
+  _gameNumber: 0
+  _kFactor: 50
+  _loser: &id005 !!python/object:__main__.officeballPlayer
+    _ID: 7
+    _elo: 930.4793128232279
+    _nGames: 3
+    _name: Andre
+  _loserOrigElo: 1000
+  _time: 1200
+  _winner: *id001
+  _winnerOrigElo: 950.4800031529301
+- !!python/object:__main__.officeballGame
+  _date: 31/12/1969
+  _gameNumber: 0
+  _kFactor: 50
+  _loser: *id001
+  _loserOrigElo: 979.0193189191076
+  _time: 1200
+  _winner: *id002
+  _winnerOrigElo: 979.9710813616865
+- !!python/object:__main__.officeballGame
+  _date: 31/12/1969
+  _gameNumber: 0
+  _kFactor: 50
+  _loser: *id003
+  _loserOrigElo: 1069.5489154853835
+  _time: 1200
+  _winner: *id002
+  _winnerOrigElo: 1004.9025967201095
+- !!python/object:__main__.officeballGame
+  _date: 31/12/1969
+  _gameNumber: 0
+  _kFactor: 50
+  _loser: *id001
+  _loserOrigElo: 954.0878035606846
+  _time: 1200
+  _winner: &id004 !!python/object:__main__.officeballPlayer
+    _ID: 2
+    _elo: 1099.5153426017018
+    _nGames: 9
+    _name: Brad
+  _winnerOrigElo: 1000
+- !!python/object:__main__.officeballGame
+  _date: 31/12/1969
+  _gameNumber: 0
+  _kFactor: 50
+  _loser: *id003
+  _loserOrigElo: 1039.9501876160757
+  _time: 1200
+  _winner: *id004
+  _winnerOrigElo: 1021.7154485582221
+- !!python/object:__main__.officeballGame
+  _date: 31/12/1969
+  _gameNumber: 0
+  _kFactor: 50
+  _loser: *id005
+  _loserOrigElo: 971.4606842338225
+  _time: 1200
+  _winner: *id003
+  _winnerOrigElo: 1013.6392960856496
+- !!python/object:__main__.officeballGame
+  _date: 31/12/1969
+  _gameNumber: 0
+  _kFactor: 50
+  _loser: *id005
+  _loserOrigElo: 949.4808568684186
+  _time: 1200
+  _winner: *id002
+  _winnerOrigElo: 1034.5013245894174
+- !!python/object:__main__.officeballGame
+  _date: 31/12/1969
+  _gameNumber: 0
+  _kFactor: 50
+  _loser: *id001
+  _loserOrigElo: 932.3723550024625
+  _time: 1200
+  _winner: *id004
+  _winnerOrigElo: 1048.0263400886483
+- !!python/object:__main__.officeballGame
+  _date: 31/12/1969
+  _gameNumber: 0
+  _kFactor: 50
+  _loser: *id001
+  _loserOrigElo: 915.3999861106927
+  _time: 1200
+  _winner: *id003
+  _winnerOrigElo: 1035.6191234510534
+- !!python/object:__main__.officeballGame
+  _date: 31/12/1969
+  _gameNumber: 0
+  _kFactor: 50
+  _loser: *id003
+  _loserOrigElo: 1052.2981279185576
+  _time: 1200
+  _winner: *id002
+  _winnerOrigElo: 1053.5028686346081
+- !!python/object:__main__.officeballGame
+  _date: 31/12/1969
+  _gameNumber: 0
+  _kFactor: 50
+  _loser: *id001
+  _loserOrigElo: 898.7209816431883
+  _time: 1200
+  _winner: *id002
+  _winnerOrigElo: 1078.4161809191157
+- !!python/object:__main__.officeballGame
+  _date: 31/12/1969
+  _gameNumber: 0
+  _kFactor: 50
+  _loser: *id002
+  _loserOrigElo: 1091.527694692032
+  _time: 1200
+  _winner: *id003
+  _winnerOrigElo: 1027.38481563405
+- !!python/object:__main__.officeballGame
+  _date: 31/12/1969
+  _gameNumber: 0
+  _kFactor: 50
+  _loser: *id001
+  _loserOrigElo: 885.609467870272
+  _time: 1200
+  _winner: *id002
+  _winnerOrigElo: 1061.9639757597483
+- !!python/object:__main__.officeballGame
+  _date: 31/12/1969
+  _gameNumber: 0
+  _kFactor: 50
+  _loser: *id003
+  _loserOrigElo: 1056.9485345663336
+  _time: 1200
+  _winner: *id002
+  _winnerOrigElo: 1075.2623608367383
+- !!python/object:__main__.officeballGame
+  _date: 31/12/1969
+  _gameNumber: 0
+  _kFactor: 50
+  _loser: *id002
+  _loserOrigElo: 1098.94579423855
+  _time: 1200
+  _winner: *id001
+  _winnerOrigElo: 872.3110827932821
+- !!python/object:__main__.officeballGame
+  _date: 31/12/1969
+  _gameNumber: 0
+  _kFactor: 50
+  _loser: *id003
+  _loserOrigElo: 1033.2651011645219
+  _time: 1200
+  _winner: *id001
+  _winnerOrigElo: 911.641609439161
+- !!python/object:__main__.officeballGame
+  _date: 31/12/1969
+  _gameNumber: 0
+  _kFactor: 50
+  _loser: *id002
+  _loserOrigElo: 1059.6152675926712
+  _time: 1200
+  _winner: *id001
+  _winnerOrigElo: 945.0523404640904
+- !!python/object:__main__.officeballGame
+  _date: 31/12/1969
+  _gameNumber: 0
+  _kFactor: 50
+  _loser: *id001
+  _loserOrigElo: 978.0094876401804
+  _time: 1200
+  _winner: *id004
+  _winnerOrigElo: 1064.9987089804183
+- !!python/object:__main__.officeballGame
+  _date: 31/12/1969
+  _gameNumber: 0
+  _kFactor: 50
+  _loser: *id003
+  _loserOrigElo: 999.8543701395924
+  _time: 1200
+  _winner: *id001
+  _winnerOrigElo: 959.141268505916
+- !!python/object:__main__.officeballGame
+  _date: 31/12/1969
+  _gameNumber: 0
+  _kFactor: 50
+  _loser: *id003
+  _loserOrigElo: 971.9381628051533
+  _time: 1200
+  _winner: *id002
+  _winnerOrigElo: 1026.6581204165814
+- !!python/object:__main__.officeballGame
+  _date: 31/12/1969
+  _gameNumber: 0
+  _kFactor: 50
+  _loser: *id002
+  _loserOrigElo: 1047.752939299347
+  _time: 1200
+  _winner: *id004
+  _winnerOrigElo: 1083.8669281146829
+- !!python/object:__main__.officeballGame
+  _date: 31/12/1969
+  _gameNumber: 0
+  _kFactor: 50
+  _loser: *id002
+  _loserOrigElo: 1025.3422311096674
+  _time: 1200
+  _winner: *id001
+  _winnerOrigElo: 987.0574758403551
+- !!python/object:__main__.officeballGame
+  _date: 31/12/1969
+  _gameNumber: 0
+  _kFactor: 50
+  _loser: *id003
+  _loserOrigElo: 950.8433439223877
+  _time: 1200
+  _winner: *id001
+  _winnerOrigElo: 1014.8011893523806
+- !!python/object:__main__.officeballGame
+  _date: 31/12/1969
+  _gameNumber: 0
+  _kFactor: 50
+  _loser: *id001
+  _loserOrigElo: 1035.2503422256966
+  _time: 1200
+  _winner: *id002
+  _winnerOrigElo: 997.598517597642
+- !!python/object:__main__.officeballGame
+  _date: 31/12/1969
+  _gameNumber: 0
+  _kFactor: 50
+  _loser: *id003
+  _loserOrigElo: 930.3941910490717
+  _time: 1200
+  _winner: *id002
+  _winnerOrigElo: 1025.2972276951957
+- !!python/object:__main__.officeballGame
+  _date: 31/12/1969
+  _gameNumber: 0
+  _kFactor: 50
+  _loser: *id001
+  _loserOrigElo: 1007.5516321281428
+  _time: 1200
+  _winner: *id002
+  _winnerOrigElo: 1043.6333235471163
+- !!python/object:__main__.officeballGame
+  _date: 31/12/1969
+  _gameNumber: 0
+  _kFactor: 50
+  _loser: *id004
+  _loserOrigElo: 1106.2776363043624
+  _time: 1200
+  _winner: *id002
+  _winnerOrigElo: 1066.0463308138123
+- !!python/object:__main__.officeballGame
+  _date: 31/12/1969
+  _gameNumber: 0
+  _kFactor: 50
+  _loser: *id004
+  _loserOrigElo: 1078.3956307780702
+  _time: 1200
+  _winner: *id001
+  _winnerOrigElo: 985.1386248614467
+- !!python/object:__main__.officeballGame
+  _date: 31/12/1969
+  _gameNumber: 0
+  _kFactor: 50
+  _loser: *id002
+  _loserOrigElo: 1093.9283363401046
+  _time: 1200
+  _winner: *id004
+  _winnerOrigElo: 1046.8418908356387
+- !!python/object:__main__.officeballGame
+  _date: 31/12/1969
+  _gameNumber: 0
+  _kFactor: 50
+  _loser: *id002
+  _loserOrigElo: 1065.5607865285133
+  _time: 1200
+  _winner: *id004
+  _winnerOrigElo: 1075.20944064723
+- !!python/object:__main__.officeballGame
+  _date: 31/12/1969
+  _gameNumber: 0
+  _kFactor: 50
+  _loser: *id003
+  _loserOrigElo: 912.0580951971511
+  _time: 1200
+  _winner: *id002
+  _winnerOrigElo: 1041.2548845740414

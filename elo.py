@@ -44,6 +44,7 @@ class officeballPlayer:
     def nGames(self, value):
         self._nGames = value
 
+    # ------------------------------------------------------------------
 
     def printInfo(self):
         print(f"{self.name} | Elo={int(self.elo)} | nGames={self.nGames}")
@@ -117,6 +118,7 @@ class officeballGame:
     def gameNumber(self, value):
         self._gameNumber = value
 
+    # ------------------------------------------------------------------
 
     @property
     def winnerExpectation(self):
@@ -138,49 +140,110 @@ class officeballGame:
         self.loser.incrementGames()
 
 
-def addGame():
 
 
+class officeballProgram:
+    def __init__(self):
+        self._players = []
+        self._games = []
+        self._kbdInput = 'None'
 
-def addNewPlayer():
-    print('Enter the name of the new player:')
+    @property
+    def players(self):
+        return self._players
+
+    @players.setter
+    def players(self, value):
+        self._players = value
+
+    @property
+    def games(self):
+        return self._games
+
+    @games.setter
+    def games(self, value):
+        self._games = value
+
+    @property
+    def kbdInput(self):
+        return self._kbdInput
+
+    @kbdInput.setter
+    def kbdInput(self, value):
+        self._kbdInput = value
+
+    # ------------------------------------------------------------------
 
 
-def removePlayer():
-    print('Note, only a player with 0 games played is able to be removed.'
-    print('Enter the name of the player to be removed:')
+    def addGame(self):
+        print('Enter the name of the winning player:')
 
 
-# def undoPreviousCommand():
+    def addNewPlayer(self):
+        print('Enter the name of the new player:')
+
+
+    def removePlayer(self):
+        print('Note, only a player with 0 games played is able to be removed.')
+        print('Enter the name of the player to be removed:')
+
+
+    def revertData(self):
+        print('Reverting to previous data')
+
+    def readCurrentData(self):
+        # Read in current player data
+        with io.open('playerData.yaml', 'r') as stream:
+            self.players = yaml.load(stream)
+
+        # Read in the game history
+        with io.open('gameHistory.yaml', 'r') as stream:
+            self.games = yaml.load(stream)
+
+
+    def writeCurrentData():
+        # Backup playerData and gameHistory
+        process = subprocess.run(['cp', 'playerData.yaml', 'playerData_backup.yaml'])
+        process = subprocess.run(['cp', 'gameHistory.yaml', 'gameHistory_backup.yaml'])
+
+        # Store playerData in a yaml file
+        with io.open('playerData.yaml', 'w', encoding='utf8') as outfile:
+            yaml.dump(self.players, outfile, default_flow_style=False, allow_unicode=True)
+
+        # Store gameData in a yaml file
+        with io.open('gameHistory.yaml', 'w', encoding='utf8') as outfile:
+            yaml.dump(self.games, outfile, default_flow_style=False, allow_unicode=True)
+
+
+    def runProgram(self):
+        while True:
+            kbdInput = input('Enter an option: ')
+
+
+            if kbdInput == '0':
+                break
+
+            elif kbdInput == '1':
+                self.addGame()
+
+            elif kbdInput == '9':
+                # Read in previous player data
+                with io.open('playerData_backup.yaml', 'r') as stream:
+                    players = yaml.load(stream)
+
+                # Read in the previous game history
+                with io.open('gameHistory_backup.yaml', 'r') as stream:
+                    games = yaml.load(stream)
+
+
 
 
 
 def main():
-
-    # Read in current player data
-    with io.open('playerData.yaml', 'r') as stream:
-        players = yaml.load(stream)
-
-    # Read in the game history
-    with io.open('gameHistory.yaml', 'r') as stream:
-        games = yaml.load(stream)
+    print('test')
 
 
 
-
-
-
-    # Backup playerData and gameHistory
-    process = subprocess.run(['cp', 'playerData.yaml', 'playerData_backup.yaml'])
-    process = subprocess.run(['cp', 'gameHistory.yaml', 'gameHistory_backup.yaml'])
-
-    # Store playerData in a yaml file
-    with io.open('playerData.yaml', 'w', encoding='utf8') as outfile:
-        yaml.dump(players, outfile, default_flow_style=False, allow_unicode=True)
-
-    # Store gameData in a yaml file
-    with io.open('gameHistory.yaml', 'w', encoding='utf8') as outfile:
-        yaml.dump(games, outfile, default_flow_style=False, allow_unicode=True)
 
 
 if __name__ == "__main__":
