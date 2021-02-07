@@ -167,24 +167,51 @@ class officeballProgram:
 
 
     def addGame(self):
+        """ Add a new game to the game history """
         self.readCurrentData()
 
         isValidInput = False
+        print('Enter 0 at any point to return to menu')
         while not isValidInput:
-            newWinner = input('Enter the name of the winning player: ')
+            winnerName = input('Enter the name of the winning player: ')
+            if winnerName == '0':
+                return
+
+            elif winnerName == '1':
+                self.printAllNames()
+
             for player in self.players:
-                if player.name == newWinner:
+                if player.name == winnerName:
                     isValidInput = True
+                    winner = player
+            print('Please enter a valid name, or 1 to view all players')
+
 
         isValidInput = False
         while not isValidInput:
-            newLoser  = input('Enter the name of the losing player: ')
-            if newLoser == newWinner:
+            loserName  = input('Enter the name of the losing player: ')
+            if loserName == '0':
+                return
+
+            elif loserName == newWinner:
                 print('I doubt they played against themselves, try again.')
+
+            elif loserName == '1':
+                self.printAllNames()
+
             else:
                 for player in self.players:
-                    if player.name == newLoser:
+                    if player.name == loserName:
                         isValidInput = True
+                        loser = player
+
+
+        newGame = officeballGame(winner, loser)
+        self.games.append(newGame)
+        self.games.updateElo()
+
+
+    # def printAllNames(self):
 
 
 
@@ -199,6 +226,7 @@ class officeballProgram:
 
     def revertData(self):
         print('Reverting to previous data')
+
 
     def readCurrentData(self):
         # Read in current player data
@@ -238,7 +266,7 @@ class officeballProgram:
         while True:
             print('Enter an option:')
             print('1. Add a new game')
-            print('8. List current players')
+            print('8. List current player stats')
             print('9. Undo previous command')
             print('0. Exit')
             kbdInput = input('')
