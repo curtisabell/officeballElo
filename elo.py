@@ -146,7 +146,6 @@ class officeballProgram:
     def __init__(self):
         self._players = []
         self._games = []
-        self._kbdInput = 'None'
 
     @property
     def players(self):
@@ -164,19 +163,29 @@ class officeballProgram:
     def games(self, value):
         self._games = value
 
-    @property
-    def kbdInput(self):
-        return self._kbdInput
-
-    @kbdInput.setter
-    def kbdInput(self, value):
-        self._kbdInput = value
-
     # ------------------------------------------------------------------
 
 
     def addGame(self):
-        print('Enter the name of the winning player:')
+        self.readCurrentData()
+
+        isValidInput = False
+        while not isValidInput:
+            newWinner = input('Enter the name of the winning player: ')
+            for player in self.players:
+                if player.name == newWinner:
+                    isValidInput = True
+
+        isValidInput = False
+        while not isValidInput:
+            newLoser  = input('Enter the name of the losing player: ')
+            if newLoser == newWinner:
+                print('I doubt they played against themselves, try again.')
+            else:
+                for player in self.players:
+                    if player.name == newLoser:
+                        isValidInput = True
+
 
 
     def addNewPlayer(self):
@@ -201,7 +210,17 @@ class officeballProgram:
             self.games = yaml.load(stream)
 
 
-    def writeCurrentData():
+    def readPreviousData(self):
+        # Read in previous player data
+        with io.open('playerData_backup.yaml', 'r') as stream:
+            self.players = yaml.load(stream)
+
+        # Read in the previous game history
+        with io.open('gameHistory_backup.yaml', 'r') as stream:
+            self.games = yaml.load(stream)
+
+
+    def writeData(self):
         # Backup playerData and gameHistory
         process = subprocess.run(['cp', 'playerData.yaml', 'playerData_backup.yaml'])
         process = subprocess.run(['cp', 'gameHistory.yaml', 'gameHistory_backup.yaml'])
@@ -217,31 +236,35 @@ class officeballProgram:
 
     def runProgram(self):
         while True:
-            kbdInput = input('Enter an option: ')
-
+            print('Enter an option:')
+            print('1. Add a new game')
+            print('8. List current players')
+            print('9. Undo previous command')
+            print('0. Exit')
+            kbdInput = input('')
 
             if kbdInput == '0':
+                print('Exiting...')
                 break
 
             elif kbdInput == '1':
                 self.addGame()
 
+            elif kbdInput == '8':
+                self.readCurrentData()
+                for player in self.players:
+                    player.printInfo()
+
             elif kbdInput == '9':
-                # Read in previous player data
-                with io.open('playerData_backup.yaml', 'r') as stream:
-                    players = yaml.load(stream)
-
-                # Read in the previous game history
-                with io.open('gameHistory_backup.yaml', 'r') as stream:
-                    games = yaml.load(stream)
-
+                self.readPreviousData()
+                self.writeData()
 
 
 
 
 def main():
-    print('test')
-
+    officeball = officeballProgram()
+    officeball.runProgram()
 
 
 
