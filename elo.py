@@ -146,6 +146,7 @@ class officeballProgram:
     def __init__(self):
         self._players = []
         self._games = []
+        self.testMode = False
 
     @property
     def players(self):
@@ -170,9 +171,9 @@ class officeballProgram:
         """ Add a new game to the game history """
         self.readCurrentData()
 
-        isValidInput = False
+        validInput = False
         print('Enter 0 at any point to return to menu')
-        while not isValidInput:
+        while not validInput:
             winnerName = input('Enter the name of the winning player: ')
             if winnerName == '0':
                 return
@@ -180,20 +181,21 @@ class officeballProgram:
             elif winnerName == '1':
                 self.printAllNames()
 
-            for player in self.players:
-                if player.name == winnerName:
-                    isValidInput = True
-                    winner = player
-            print('Please enter a valid name, or 1 to view all players')
+            else:
+                for player in self.players:
+                    if player.name.lower() == winnerName.lower():
+                        validInput = True
+                        winner = player
+                if not validInput:
+                    print('Please enter a valid name, or 1 to view all players')
 
-
-        isValidInput = False
-        while not isValidInput:
-            loserName  = input('Enter the name of the losing player: ')
+        validInput = False
+        while not validInput:
+            loserName  = input('Enter the name of the losing player:  ')
             if loserName == '0':
                 return
 
-            elif loserName == newWinner:
+            elif loserName.lower() == winnerName.lower():
                 print('I doubt they played against themselves, try again.')
 
             elif loserName == '1':
@@ -201,22 +203,51 @@ class officeballProgram:
 
             else:
                 for player in self.players:
-                    if player.name == loserName:
-                        isValidInput = True
+                    if player.name.lower() == loserName.lower():
+                        validInput = True
                         loser = player
+                if not validInput:
+                    print('Please enter a valid name, or 1 to view all players')
 
-
+        previousEloWinner = winner.elo
+        previousEloLoser  = loser.elo
         newGame = officeballGame(winner, loser)
         self.games.append(newGame)
-        self.games.updateElo()
+        newGame.updateElo()
+        if not self.testMode:
+            self.writeData()
+
+        print('Elo Changes:')
+        print(f'{winner.name}: New Elo = {int(winner.elo)} (+{int(winner.elo-previousEloWinner)})')
+        print(f'{loser.name}: New Elo = {int(loser.elo)} ({int(loser.elo-previousEloLoser)})')
 
 
-    # def printAllNames(self):
+    def printAllNames(self):
+        playerNames = []
+        for player in self.players:
+            playerNames.append(player.name)
 
+        print(playerNames)
 
 
     def addNewPlayer(self):
-        print('Enter the name of the new player:')
+        self.readCurrentData()
+        maxID = 0
+        for player in self.players:
+            if player.ID > maxID:
+                maxID = player.ID
+
+        newName = input('Enter the name of the new player: ')
+        if newName == '0':
+            return
+        # Force capitalisation on first letter of the name
+        newName = newName[0].upper() + newName[1:]
+        newPlayer = officeballPlayer(ID=maxID+1, name=newName)
+        self.players.append(newPlayer)
+        print('New player details:')
+        newPlayer.printInfo()
+        if not self.testMode:
+            self.writeData()
 
 
     def removePlayer(self):
@@ -264,12 +295,15 @@ class officeballProgram:
 
     def runProgram(self):
         while True:
+            print('')
             print('Enter an option:')
             print('1. Add a new game')
+            print('2. Add a new player')
             print('8. List current player stats')
             print('9. Undo previous command')
             print('0. Exit')
             kbdInput = input('')
+            print('')
 
             if kbdInput == '0':
                 print('Exiting...')
@@ -277,6 +311,9 @@ class officeballProgram:
 
             elif kbdInput == '1':
                 self.addGame()
+
+            elif kbdInput == '2':
+                self.addNewPlayer()
 
             elif kbdInput == '8':
                 self.readCurrentData()
@@ -292,6 +329,7 @@ class officeballProgram:
 
 def main():
     officeball = officeballProgram()
+    officeball.testMode = True
     officeball.runProgram()
 
 

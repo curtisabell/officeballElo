@@ -359,3 +359,20 @@
   _time: 1200
   _winner: *id002
   _winnerOrigElo: 1041.2548845740414
+- !!python/object:__main__.officeballGame
+  _date: 31/12/1969
+  _gameNumber: 0
+  _kFactor: 50
+  _loser: !!python/object:__main__.officeballPlayer
+    _ID: 1
+    _elo: 1021.5189869677376
+    _nGames: 24
+    _name: Alec
+  _loserOrigElo: 1057.3644836748895
+  _time: 1200
+  _winner: !!python/object:__main__.officeballPlayer
+    _ID: 3
+    _elo: 931.793992803455
+    _nGames: 17
+    _name: Curtis
+  _winnerOrigElo: 895.9484960963032
