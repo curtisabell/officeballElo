@@ -226,22 +226,31 @@ class officeballProgram:
         playerNames = []
         for player in self.players:
             playerNames.append(player.name)
-
         print(playerNames)
 
 
     def addNewPlayer(self):
         self.readCurrentData()
+        while True:
+            validName = True
+            newName = input('Enter the name of the new player: ')
+            if newName == '0':
+                return
+            else:
+                newName = newName.lower()
+                newName = newName[0].upper() + newName[1:]
+                for player in self.players:
+                    if newName.lower() == player.name.lower():
+                        print(f'{newName} already exists! Pick another name')
+                        validName = False
+                        break
+                if validName:
+                    break
+
         maxID = 0
         for player in self.players:
             if player.ID > maxID:
                 maxID = player.ID
-
-        newName = input('Enter the name of the new player: ')
-        if newName == '0':
-            return
-        # Force capitalisation on first letter of the name
-        newName = newName[0].upper() + newName[1:]
         newPlayer = officeballPlayer(ID=maxID+1, name=newName)
         self.players.append(newPlayer)
         print('New player details:')
@@ -296,13 +305,14 @@ class officeballProgram:
     def runProgram(self):
         while True:
             print('')
-            print('Enter an option:')
-            print('1. Add a new game')
-            print('2. Add a new player')
-            print('8. List current player stats')
-            print('9. Undo previous command')
-            print('0. Exit')
-            kbdInput = input('')
+            print('1.  Add a new game')
+            print('2.  Add a new player')
+            print('8.  List current player stats')
+            print('9.  Undo previous command')
+            if self.testMode:
+                print('42. Disable test mode')
+            print('0.  Exit')
+            kbdInput = input('Enter an option: ')
             print('')
 
             if kbdInput == '0':
@@ -324,6 +334,10 @@ class officeballProgram:
                 self.readPreviousData()
                 self.writeData()
 
+            elif kbdInput == '42':
+                self.testMode = not self.testMode
+                print(f'Test mode is now {self.testMode}')
+
 
 
 
@@ -331,9 +345,6 @@ def main():
     officeball = officeballProgram()
     officeball.testMode = True
     officeball.runProgram()
-
-
-
 
 if __name__ == "__main__":
     main()
